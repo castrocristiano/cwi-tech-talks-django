@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+<div class="content">
+    <div class="pure-g-r content-ribbon">
+        <div class="pure-u-1">
+            <div class="l-box">
+                <h4 class="content-subhead">
+                    TAREFAS
+                </h4>
+                <p>Abaixo as suas tarefas</p>
+            </div>
+        </div>
+    </div>
+    {% for tarefa in tarefas %}
+    <div class="pure-g-r content-ribbon">
+        <div class="pure-u-1-3">
+            <div class="l-box">
+                <h4 class="content-subhead">{{ tarefa.nome }}, Criada em: {{ tarefa.data_criacao }}</h4>
+                <h5 class="pure-u-2-3">
+                    {% if tarefa.concluida %} Concluída {% else %} Não concluída {% endif %}
+                </h5>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <div class="pure-g-r content-ribbon">
+        <div class="pure-u-1">
+            <div class="l-box">
+                <p>Nenhuma tarefa cadastrada<p/>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,20 @@
+<!doctype html>
+{% load static %}
+<html lang="pt-br">
+<head>
+    <link rel="stylesheet" href="{% static 'css/pure-min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+</head>
+<body>
+    <div class="header">
+        <div class="pure-menu pure-menu-open pure-menu-fixed pure-menu-horizontal">
+            <li class="pure-menu-selected"><a href="{% url 'core:home' %}">Início</a></li>
+            <li class="pure-menu-selected"><a href="{% url 'core:tarefas' %}">Tarefas</a></li>
+        </div>
+    </div>
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+    <script src="{% static 'js/yui-min.js' %}"></script>
+</body>
+</html>
